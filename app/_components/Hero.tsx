@@ -1,10 +1,21 @@
+"use client";
 import { Coffee, Drill, Sparkle, TableColumnsSplit } from "lucide-react";
 import Image from "next/image";
 import Barchart from "./Barchart";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="h-[650px] bg-white  xl:h-[650px] mt-2">
+    <motion.section
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className="h-[650px] bg-white  xl:h-[650px] mt-2"
+    >
       <div className="h-full ">
         <div className="flex gap-2 h-full relative ">
           <div className="bg-[#F7F7F7] w-[15%] hidden xl:block rounded-4xl  "></div>
@@ -104,7 +115,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

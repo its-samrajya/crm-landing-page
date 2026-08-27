@@ -1,3 +1,4 @@
+"use client";
 import {
   ArrowRight,
   BadgeDollarSign,
@@ -7,6 +8,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 type row = {
   link: string;
@@ -103,7 +105,16 @@ const cards: card[] = [
 
 const Feature2 = () => {
   return (
-    <div className="bg-[#08272A] pb-24 xl:pb-28 flex items-center justify-center flex-col rounded-3xl pt-24 mt-2 ">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className="bg-[#08272A] pb-24 xl:pb-28 flex items-center justify-center flex-col rounded-3xl pt-24 mt-2 "
+    >
       <div className="flex items-center    justify-center flex-col">
         <p className="text-[#17A566]     font-semibold text-[14px] flex gap-1 items-center">
           <Sparkle size={15} />
@@ -231,7 +242,7 @@ const Feature2 = () => {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

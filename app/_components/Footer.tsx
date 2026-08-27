@@ -1,6 +1,8 @@
+"use client";
 import { CircleFlag } from "react-circle-flags";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebook, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 type columnType = {
   title: string;
@@ -44,7 +46,16 @@ const column: columnType[] = [
 
 const Footer = () => {
   return (
-    <div className="bg-[#F7F7F7]  rounded-4xl mt-2 pt-16 px-5  lg:px-10 xl:px-20 flex flex-col justify-center items-center">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className="bg-[#F7F7F7]  rounded-4xl mt-2 pt-16 px-5  lg:px-10 xl:px-20 flex flex-col justify-center items-center"
+    >
       <div className="flex flex-col max-w-7xl lg:flex-row  justify-between w-full  pb-14 gap-8 lg:gap-20">
         <div className="w-full lg:w-[20%]   text-center lg:text-left">
           <span className="text-[#273F43] cursor-pointer font-semibold text-2xl">
@@ -118,7 +129,7 @@ const Footer = () => {
           <span className="cursor-pointer">Terms of Use</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

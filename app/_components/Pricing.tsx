@@ -1,8 +1,19 @@
+"use client";
 import { CircleCheck, Sparkle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Pricing = () => {
   return (
-    <section className=" bg-white h-[1900px] sm:h-[2100px] md:h-[1540px] xl:h-[1000px] mt-2">
+    <motion.section
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className=" bg-white h-[1900px] sm:h-[2100px] md:h-[1540px] xl:h-[1000px] mt-2"
+    >
       <div className="h-full  ">
         <div className="flex gap-2 h-full  relative ">
           <div className="bg-[#F7F7F7] hidden xl:block w-[15%] rounded-4xl  "></div>
@@ -241,7 +252,7 @@ const Pricing = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

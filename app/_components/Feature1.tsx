@@ -1,5 +1,7 @@
+"use client";
 import { ArrowRight, Layers, Mails, Sparkle, UserPlus } from "lucide-react";
 import React from "react";
+import { motion } from "framer-motion";
 
 type contentType = {
   icon: React.ReactNode;
@@ -33,7 +35,16 @@ const content: contentType[] = [
 
 const Feature1 = () => {
   return (
-    <div className="bg-[#F7F7F7] pt-24 flex flex-col justify-center items-center rounded-4xl mt-2">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className="bg-[#F7F7F7] pt-24 flex flex-col justify-center items-center rounded-4xl mt-2"
+    >
       <div className="flex items-center max-w-7xl   justify-center flex-col">
         <p className="text-[#17A566]     font-semibold text-[14px] flex gap-1 items-center">
           <Sparkle size={15} />
@@ -75,25 +86,8 @@ const Feature1 = () => {
             </div>
           );
         })}
-
-        {/* <div className="rounded-xl p-10 bg-[#0A373C] flex flex-col  ">
-
-          <UserPlus size={40} className="text-amber-100 mb-6" />
-          <p className="text-white text-[22px] font-medium mb-2">Contact Management</p>
-          <p className="w-[90%]  text-[#fff]/70 text-[15px]  ">Create contact records, log sales activities, and view interactions.</p>
-          <div className="inline-flex justify-center items-center w-fit py-2 px-5 text-yellow-50 mt-6 rounded-4xl gap-2 border-[0.5px] border-yellow-50/30 ">Explore <ArrowRight size={20} /></div>
-
-        </div>
-        <div className="rounded-xl p-10 bg-[#0A373C] flex flex-col  ">
-
-          <Layers size={40} className="text-amber-100 mb-6" />
-          <p className="text-white text-[22px] font-medium mb-2">Pipeline Management</p>
-          <p className="w-[100%]  text-[#fff]/70 text-[15px]  ">Easily add your deals, assign tasks to your team, and track your prospects.</p>
-          <div className="inline-flex justify-center items-center text-yellow-50 w-fit py-2 px-5 mt-6 rounded-4xl gap-2 border-[0.5px] border-yellow-50/30 ">Explore <ArrowRight size={20} /></div>
-
-        </div> */}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

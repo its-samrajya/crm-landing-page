@@ -1,12 +1,21 @@
 "use client";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <>
-      <nav className="bg-[#F7F7F7] w-full flex justify-center  items-center p-3 rounded-b-3xl">
+      <motion.nav
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+        }}
+        className="bg-[#F7F7F7] w-full flex justify-center  items-center p-3 rounded-b-3xl"
+      >
         <div className="flex justify-between   max-w-7xl w-full items-center">
           <div className="flex ">
             <div className="px-14">
@@ -49,7 +58,7 @@ const Header = () => {
             {!isOpen ? <Menu /> : <X />}
           </div>
         </div>
-      </nav>
+      </motion.nav>
       {isOpen && (
         <div className="absolute top-14 left-0 w-full shadow-lg  z-50 p-5 text-center rounded-3xl bg-[#F7F7F7]  md:hidden">
           <ul className="flex flex-col gap-2 text-[#757D88] ">

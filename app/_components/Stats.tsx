@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import { motion } from "framer-motion";
 
 type dataType = {
   number: string;
@@ -26,7 +27,16 @@ const data: dataType[] = [
 
 const Stats = () => {
   return (
-    <div className="bg-[#F7F7F7] flex  items-center  justify-center  rounded-4xl mt-2 ">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className="bg-[#F7F7F7] flex  items-center  justify-center  rounded-4xl mt-2 "
+    >
       <div className="grid max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-12  items-center justify-center py-12">
         {data.map((value, index) => {
           return (
@@ -39,7 +49,7 @@ const Stats = () => {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

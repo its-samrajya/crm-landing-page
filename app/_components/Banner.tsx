@@ -1,8 +1,19 @@
+"use client";
 import { Sparkle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
-    <div className="bg-[#08272A]  rounded-3xl mt-2 flex flex-col  lg:flex-row gap-8 lg:gap-16 lg:px-5  xl:px-28 py-8 sm:py-10 lg:py-24 items-center justify-center ">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className="bg-[#08272A]  rounded-3xl mt-2 flex flex-col  lg:flex-row gap-8 lg:gap-16 lg:px-5  xl:px-28 py-8 sm:py-10 lg:py-24 items-center justify-center "
+    >
       <div className="flex max-w-7xl  lg:w-[55%]   flex-col">
         <p className="text-[#17A566] justify-center lg:justify-start    font-semibold text-[14px] flex gap-1 items-center">
           <Sparkle size={15} />
@@ -34,7 +45,7 @@ const Banner = () => {
           </span>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
