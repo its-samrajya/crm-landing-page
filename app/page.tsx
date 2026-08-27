@@ -6,13 +6,13 @@ import Footer from "./_components/Footer";
 import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import Pricing from "./_components/Pricing";
-import ScreenSize from "./_components/ScreenSize";
+// import ScreenSize from "./_components/ScreenSize";
 import Stats from "./_components/Stats";
 
 const page = () => {
   return (
     <div>
-      <ScreenSize />
+      {/* <ScreenSize /> */}
       <Header />
       <Hero />
       <Stats />
